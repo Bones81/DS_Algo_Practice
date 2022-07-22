@@ -38,21 +38,44 @@
 // console.log(reduceArray([1,3,4,6,10]))
 
 
-//Sets
-const ids = new Set()
+// //Sets Practice
+// const ids = new Set()
 
-ids.add('abc')
-ids.add(1)
-ids.add('bb2')
-ids.add(1)
+// ids.add('abc')
+// ids.add(1)
+// ids.add('bb2')
+// ids.add(1)
 
-for (const el of ids) {
+// for (const el of ids) {
+//   console.log(el);
+// }
+
+// // console.log(ids[1]); doesn't work like an array. Instead use:
+// console.log(ids.has('abc'));
+
+// ids.delete('bb2')
+
+// console.log(ids);
+
+//Maps practice
+const resultData = new Map()
+
+resultData.set('average', 1.53)
+resultData.set('lastResult', null)
+
+const germany = {name: 'Germany', population: 82}
+
+resultData.set(germany, 0.89)
+
+for (const el of resultData) {
   console.log(el);
 }
 
-// console.log(ids[1]); doesn't work like an array. Instead use:
-console.log(ids.has('abc'));
+resultData.set('average', 33.89)
+console.log(resultData);
 
-ids.delete('bb2')
+console.log(resultData.get('average'))
+console.log(resultData.average);
 
-console.log(ids);
+resultData.delete(germany)
+console.log(resultData)
