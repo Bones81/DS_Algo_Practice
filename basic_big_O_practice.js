@@ -7,3 +7,9 @@ const sumUp = (n) => {
 }
 
 console.log(sumUp(4))
+
+const constantSumUp = (n) => {
+  return (n/2) * (1 + n)
+}
+
+console.log(constantSumUp(4))
