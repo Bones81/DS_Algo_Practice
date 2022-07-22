@@ -104,12 +104,9 @@ class LinkedList {
   prepend = (value) => {
     const newNode = {
       value: value,
-      next: null
+      next: this.head
     }
 
-    if (this.head) {
-      newNode.next = this.head
-    }
     this.head = newNode
 
     if (!this.tail) {
@@ -131,10 +128,10 @@ class LinkedList {
 }
 
 const linkedList1 = new LinkedList()
-// linkedList1.append(1)
-// linkedList1.append('hello')
-// linkedList1.append('Max')
-// linkedList1.append(true)
+linkedList1.append(1)
+linkedList1.append('hello')
 linkedList1.prepend(8.563)
+linkedList1.append('Max')
+linkedList1.append(true)
 
 console.log(linkedList1.toArray())
