@@ -57,25 +57,84 @@
 
 // console.log(ids);
 
-//Maps practice
-const resultData = new Map()
+// //Maps practice
+// const resultData = new Map()
 
-resultData.set('average', 1.53)
-resultData.set('lastResult', null)
+// resultData.set('average', 1.53)
+// resultData.set('lastResult', null)
 
-const germany = {name: 'Germany', population: 82}
+// const germany = {name: 'Germany', population: 82}
 
-resultData.set(germany, 0.89)
+// resultData.set(germany, 0.89)
 
-for (const el of resultData) {
-  console.log(el);
+// for (const el of resultData) {
+//   console.log(el);
+// }
+
+// resultData.set('average', 33.89)
+// console.log(resultData);
+
+// console.log(resultData.get('average'))
+// console.log(resultData.average);
+
+// resultData.delete(germany)
+// console.log(resultData)
+
+//Linked List
+class LinkedList {
+  constructor() {
+    this.head = null; //first el of list
+    this.tail = null; //last el of list
+  }
+
+  append = (value) => {
+    const newNode = {
+      value: value,
+      next: null
+    }
+    if (this.tail) {
+      this.tail.next = newNode // update the old tail next property
+    }
+    this.tail = newNode
+    if (!this.head) { // if there is no head or tail, then node becomes both to start list
+      this.head = newNode
+    }
+  }
+
+  prepend = (value) => {
+    const newNode = {
+      value: value,
+      next: null
+    }
+
+    if (this.head) {
+      newNode.next = this.head
+    }
+    this.head = newNode
+
+    if (!this.tail) {
+      this.tail = newNode
+    }
+  }
+
+  toArray = () => {
+    const elements = []
+    
+    let currentNode = this.head
+    while (currentNode) {
+      elements.push(currentNode)
+      currentNode = currentNode.next
+    }
+
+    return elements
+  }
 }
 
-resultData.set('average', 33.89)
-console.log(resultData);
+const linkedList1 = new LinkedList()
+// linkedList1.append(1)
+// linkedList1.append('hello')
+// linkedList1.append('Max')
+// linkedList1.append(true)
+linkedList1.prepend(8.563)
 
-console.log(resultData.get('average'))
-console.log(resultData.average);
-
-resultData.delete(germany)
-console.log(resultData)
+console.log(linkedList1.toArray())
