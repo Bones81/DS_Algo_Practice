@@ -114,6 +114,31 @@ class LinkedList {
     }
   }
 
+  find = (value) => {
+    if (!this.head) {
+      return null;
+    }
+
+    let currentNode = this.head
+    while (currentNode) {
+      if(currentNode.value === value) {
+        return currentNode
+      }
+
+      currentNode = currentNode.next
+    }
+
+    return null;
+  }
+
+  insertAfter = (value, afterValue) => {
+    const existingNode = this.find(afterValue)
+    if (existingNode) {
+      const newNode = { value: value, next: existingNode.next }
+      existingNode.next = newNode
+    }
+  }
+
   delete = (value) => {
     if (!this.head) {
       return null
@@ -160,10 +185,17 @@ linkedList1.prepend(8.563)
 linkedList1.append('Max')
 linkedList1.append(true)
 
-console.log(linkedList1.toArray())
+// console.log(linkedList1.toArray())
 
 linkedList1.delete('Max')
 linkedList1.delete(8.563)
 // linkedList1.delete(true)
 
+// console.log(linkedList1.toArray())
+
+console.log(linkedList1.find('Max'))
+console.log(linkedList1.find('hello'))
+
+linkedList1.insertAfter('new value - 1', 1)
+linkedList1.insertAfter('new value - 2', 'hello')
 console.log(linkedList1.toArray())
