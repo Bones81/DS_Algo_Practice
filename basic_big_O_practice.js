@@ -114,6 +114,31 @@ class LinkedList {
     }
   }
 
+  delete = (value) => {
+    if (!this.head) {
+      return null
+    }
+
+    //ensure that we remove any head nodes that have target value
+    while(this.head && this.head.value === value) {
+      this.head = this.head.next
+    }
+
+    let currentNode = this.head
+    while (currentNode.next) {
+      if (currentNode.next.value === value) {
+        currentNode.next = currentNode.next.next
+      } else {
+        currentNode = currentNode.next
+      }
+    }
+
+    if (this.tail.value === value) {
+      this.tail = currentNode
+    }
+
+  }
+
   toArray = () => {
     const elements = []
     
@@ -131,7 +156,14 @@ const linkedList1 = new LinkedList()
 linkedList1.append(1)
 linkedList1.append('hello')
 linkedList1.prepend(8.563)
+linkedList1.prepend(8.563)
 linkedList1.append('Max')
 linkedList1.append(true)
+
+console.log(linkedList1.toArray())
+
+linkedList1.delete('Max')
+linkedList1.delete(8.563)
+// linkedList1.delete(true)
 
 console.log(linkedList1.toArray())
